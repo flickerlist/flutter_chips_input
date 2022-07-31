@@ -260,6 +260,7 @@ class ChipsInputState<T> extends State<ChipsInput<T>>
     } else {
       _suggestionsBoxController.close();
     }
+    _closeInputConnectionIfNeeded();
   }
 
   void deleteChip(T data) {
@@ -281,7 +282,6 @@ class ChipsInputState<T> extends State<ChipsInput<T>>
       _textInputConnection = TextInput.attach(this, textInputConfiguration);
       _textInputConnection?.setEditingState(_value);
       _textInputConnection!.show();
-      _updateTextInputState();
     } else {
       _textInputConnection?.show();
     }
